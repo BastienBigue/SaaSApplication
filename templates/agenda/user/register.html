@@ -1,6 +1,9 @@
 {% load static %}
-{% block title %}Welcome - Register{% endblock %}
 {% block content %}
+{% include "header.html" %}
+{% block title %}Welcome - Register{% endblock %}
+
+
 
     <!-- Subtitle ================================================== -->
     <section>
@@ -8,7 +11,7 @@
             <div class="col-sm-12 container-white">
                 
            </div>
-            <form id="user_form" method="post" action="{% url "register" %}" onSubmit="return prepareForm('user_form')" novalidate>
+            <form id="user_form" method="post" action="{% url 'register' %}" onSubmit="return prepareForm('user_form')" novalidate>
                 {% csrf_token %}
                 <div class="row">
                     <div class="form-group">
@@ -27,7 +30,6 @@
 	                	</div>
                         <div >
                             <div class="form-group">
-                                <b>Confirm password:</b>
                                 <div>
                                     <input type="password" class="" name="password2" placeholder="Confirm this password" required>
                                 </div>
@@ -42,7 +44,11 @@
                         You are connected ! 
                     </div>
                 {% endif%}
-                    
+
+                <div>
+                    {{error_registration_text}}
+                </div>
+                
             </form>
         </div>
     </section><!-- Subtitle -->

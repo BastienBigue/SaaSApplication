@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'agenda',
 ]
 
 MIDDLEWARE = [
@@ -49,7 +50,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'B11.urls'
+ROOT_URLCONF = 'projetB11.urls'
 
 TEMPLATES = [
     {
@@ -67,7 +68,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'B11.wsgi.application'
+WSGI_APPLICATION = 'projetB11.wsgi.application'
 
 
 # Database
@@ -76,16 +77,6 @@ WSGI_APPLICATION = 'B11.wsgi.application'
 if os.getenv('SERVER_SOFTWARE', '').startswith('Google App Engine'):
     # Running on production App Engine, so connect to Google Cloud SQL using
     # the unix socket at /cloudsql/<your-cloudsql-connection string>
-    # DATABASES = {
-    #     'default': {
-    #         'ENGINE': 'django.db.backends.mysql',
-    #         'HOST': '/cloudsql/djangob11-184900:europe-west1:projetb11',
-    #         'NAME': 'b11db',
-    #         'USER': 'b11',
-    #         'PASSWORD': 'passwordb11',
-    #     }
-    # }
-
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
@@ -104,27 +95,23 @@ else:
     #
     # See https://cloud.google.com/sql/docs/mysql-connect-proxy
 
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'application',
-            'USER': 'root',
-            'PASSWORD': 'qL68iJy1m4',
-            'HOST': 'node14995-env-5912453.hidora.com',
-            'PORT': '11069',
-        }
-    }
-
     # DATABASES = {
     #     'default': {
     #         'ENGINE': 'django.db.backends.mysql',
-    #         'HOST': '127.0.0.1',
-    #         'PORT': '3306',
-    #         'NAME': 'b11db',
-    #         'USER': 'b11',
-    #         'PASSWORD': 'passwordb11',
+    #         'NAME': 'application',
+    #         'USER': 'root',
+    #         'PASSWORD': 'qL68iJy1m4',
+    #         'HOST': 'node14995-env-5912453.hidora.com',
+    #         'PORT': '11069',
     #     }
     # }
+
+   DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+   }
 
 
 # Password validation

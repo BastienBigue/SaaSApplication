@@ -2,6 +2,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.utils.safestring import mark_safe
+from agenda.models import Task
 
 
 
@@ -15,4 +16,15 @@ class UserRegistrationForm(forms.ModelForm):
             'username': forms.TextInput(attrs={'placeholder': 'Enter your e-mail', 'id': 'email'}),
             'password': forms.PasswordInput(
                 attrs={'placeholder': 'Choose a password', 'name': 'password', 'id': 'password'}),
+        }
+        7
+class TaskForm(forms.ModelForm): 
+    class Meta: 
+        model = Task
+        fields=['title', 'description', 'lieu', 'date']
+        widgets = {
+            'title': forms.TextInput(attrs={'placeholder': 'What ?', 'id': 'title'}),
+            'description': forms.TextInput(attrs={'placeholder': 'How ? Why ? ', 'id': 'description'}),
+            'lieu': forms.TextInput(attrs={'placeholder': 'Where ?', 'id': 'lieu'}),
+            'date': forms.DateTimeInput(attrs={'placeholder': 'When ? YYYY-MM-DD HH:MM', 'name': 'date', 'id': 'date'}),
         }

@@ -1,0 +1,56 @@
+{% load static %}
+{% block content %}
+{% include "header.html" %}
+{% block title %}Welcome - Your dashboard{% endblock %}
+    
+    <section>
+        <div class="row">
+            <div class="col-sm-12 container-white">
+                This is the dashboard !                 
+           </div>
+
+                <form id="task_form" method="post" action="{% url 'dashboard' %}" onSubmit="return prepareForm('task_form')" novalidate>
+                {% csrf_token %}
+                <div class="row">
+                    <div class="form-group">
+                        <div>
+                            {{ task_form.title }}
+                        </div>      
+                        <div>
+                            {{ task_form.description }}
+                        </div>
+                    </div>  
+                    <div class="form-group">
+                        <div>
+                            {{ task_form.lieu }}
+                        </div>
+                        <div>
+                            {{ task_form.date }}
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="button text-center" name="btnAddTask" form="task_form">Add Task</button>
+
+
+                {% if new_task_added %}
+                    <div>
+                        A new task has been added ! 
+                    </div>
+                {% endif%}
+
+                {% if form_errors_b %}
+                    <div>
+                        {{form_errors}}
+                    </div>
+                {% endif%}
+
+                <div>
+                    {{error_registration_text}}
+                </div>
+                
+            </form>
+        </div>
+    </section>
+
+{% endblock %}

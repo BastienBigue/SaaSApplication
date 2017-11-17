@@ -1,0 +1,45 @@
+{% load static %}
+{% block content %}
+{% include "header.html" %}
+{% block title %}Welcome - Homepage{% endblock %}
+
+
+    <!-- Subtitle ================================================== -->
+    <section>
+        <div class="row">
+            <div class="col-sm-12 container-white">
+                <div class="bottom text-center">
+                    <a href={% url 'register' %}><b>Register</b></a>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <form name="form_login" method="post" action="{% url 'login' %}" onSubmit="return prepareForm('login')">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <div class="inner-addon">
+                                    <input type="text" name="username" placeholder="E-mail or LAAS login" required>
+                                    <i class="glyphicon glyphicon-user icon-brown"></i>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="inner-addon">
+                                    <input type="password" name="password" placeholder="Password" required>
+                                    <i class="glyphicon glyphicon-lock icon-brown"></i>
+                                </div>
+                            </div>
+                            <div class="form-group text-center">
+                                <button type="submit" class="button buttonBrown">Sign in</button>
+                            </div>
+                            {%if error_login %}
+                                <div>
+                                    Sorry, you entered the wrong password or username! 
+                                </div>
+                            {% endif %}
+                         </form>
+                    </div>
+                </div>
+           </div>
+        </div>
+    </section>
+
+{% endblock %}
