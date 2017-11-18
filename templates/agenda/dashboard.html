@@ -1,34 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>My tasks</title>
-    <style>
-        table, th, td {border: 1px solid black;}
-    </style>
-</head>
-<body>
-<h1> My planned tasks</h1>
+{% load static %}
+{% block content %}
+{% include "header.html" %}
+{% block title %}Welcome - Your dashboard{% endblock %}
 
-<a href={% url 'addTask' %}><b>Add a new Task </b></a>
+<section>
+    <head>
+        <meta charset="UTF-8">
+        <title>My tasks</title>
+        <style>
+            table, th, td {border: 1px solid black;}
+        </style>
+    </head>
+    <body>
+    <h1> My planned tasks</h1>
 
-<table>
-  <tr>
-    <th>title</th>
-    <th>description</th>
-    <th>location</th>
-    <th>date</th>
-</tr>
-    {% for task in taskList %}
-    <tr>
-        <td>{{task.title}}</td>
-        <td>{{task.description}}</td>
-        <td>{{task.lieu}}</td>
-        <td>{{task.date}}</td>
+    <a href={% url 'addTask' %}><b>Add a new Task </b></a>
+
+    <table>
+      <tr>
+        <th>title</th>
+        <th>description</th>
+        <th>location</th>
+        <th>date</th>
     </tr>
-    {% endfor %}
-</table>
-
-
-</body>
-</html>
+        {% for task in taskList %}
+        <tr>
+            <td>{{task.title}}</td>
+            <td>{{task.description}}</td>
+            <td>{{task.lieu}}</td>
+            <td>{{task.date}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    </body>
+</section>
+{% endblock %}
