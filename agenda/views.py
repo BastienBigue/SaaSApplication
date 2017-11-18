@@ -47,8 +47,7 @@ def register(request):
                 agenda = Agenda.objects.create(user=user, mail=user.email)
 
                 registered = True
-                task_form = TaskForm()
-                return render(request, 'agenda/addTask.html', locals())
+                return render(request, 'agenda/dashboard.html', locals())
 
         else:
             error_registration = True
