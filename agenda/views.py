@@ -48,7 +48,7 @@ def register(request):
 
                 registered = True
                 task_form = TaskForm()
-                return render(request, 'agenda/dashboard.html', locals())
+                return render(request, 'agenda/addTask.html', locals())
 
         else:
             error_registration = True
@@ -75,38 +75,45 @@ def user_login(request):
         if user:
             login(request, user)
             task_form = TaskForm()
-            return render(request, 'agenda/dashboard.html', locals())
+            return redirect('dashboard')
+            # return render(request, 'agenda/addTask.html', locals())
         else:
             error_login = True
             return render(request, 'agenda/welcome.html', locals())
     else: 
         task_form = TaskForm()
-        return render(request, 'agenda/dashboard.html', locals())
+        return render(request, 'agenda/addTask.html', locals())
 
 
         
 
 @login_required(login_url='/agenda/')
-def dashboard(request): 
-    
-    new_task_added = False 
+def addTask(request):
+    new_task_added = False
     form_errors_b = False
-
-    if request.POST: 
+    if request.POST:
         task_form = TaskForm(request.POST)
-        if task_form.is_valid(): 
+        if task_form.is_valid():
             task = task_form.save(commit=False)
             task.agenda = Agenda.objects.get(user=User.objects.get(username=request.user))
             task.save()
             new_task_added = True 
             task_form = TaskForm()
-            return render(request, 'agenda/dashboard.html', locals())
+            return redirect('dashboard')
+            # return render(request, 'agenda/addTask.html', locals())
         else: 
             form_errors_b = True
             form_errors = task_form.errors
-            return render(request, 'agenda/dashboard.html', locals())
+            return render(request, 'agenda/addTask.html', locals())
     else: 
         task_form = TaskForm(data=request.POST)
+        return render(request, 'agenda/addTask.html', locals())
+
+
+@login_required(login_url='/agenda/')
+def dashboard(request):
+        userAgenda = Agenda.objects.get(user=User.objects.get(username=request.user))
+        taskList=userAgenda.task_set.all()
         return render(request, 'agenda/dashboard.html', locals())
 
 

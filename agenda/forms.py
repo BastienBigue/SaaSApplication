@@ -4,8 +4,6 @@ from django.contrib.auth.models import User
 from django.utils.safestring import mark_safe
 from agenda.models import Task
 
-
-
 class UserRegistrationForm(forms.ModelForm):
     class Meta:
         model = User
@@ -17,7 +15,7 @@ class UserRegistrationForm(forms.ModelForm):
             'password': forms.PasswordInput(
                 attrs={'placeholder': 'Choose a password', 'name': 'password', 'id': 'password'}),
         }
-        7
+
 class TaskForm(forms.ModelForm): 
     class Meta: 
         model = Task
