@@ -85,7 +85,7 @@ def user_login(request):
 
 
         
-
+from soundModule import textToAudio
 @login_required(login_url='/agenda/')
 def addTask(request):
     new_task_added = False
@@ -96,7 +96,8 @@ def addTask(request):
             task = task_form.save(commit=False)
             task.agenda = Agenda.objects.get(user=User.objects.get(username=request.user))
             task.save()
-            new_task_added = True 
+            textToAudio.convertTaskToAudio(task) #generate audio
+            new_task_added = True
             task_form = TaskForm()
             return redirect('dashboard')
             # return render(request, 'agenda/addTask.html', locals())
