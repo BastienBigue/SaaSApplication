@@ -18,6 +18,7 @@
     <th>description</th>
     <th>location</th>
     <th>date</th>
+    <th>listenToMe</th>
 </tr>
     {% for task in taskList %}
     <tr>
@@ -25,10 +26,21 @@
         <td>{{task.description}}</td>
         <td>{{task.lieu}}</td>
         <td>{{task.date}}</td>
+        <td> <input type="button" value="PLAY"  onclick="play('task{{task.id}}')">
+            <audio id="task{{task.id}}" src="/media/audio/task{{task.id}}.mp3" ></audio>
+        </td>
+
     </tr>
     {% endfor %}
 </table>
 
+
+<script>
+    function play(pisteAudio){
+    var audio = document.getElementById(pisteAudio);
+    audio.play();
+         }
+    </script>
 
 </body>
 </html>
