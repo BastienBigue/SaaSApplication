@@ -15,12 +15,11 @@
                         <a href={% url 'logout' %}><b>Log out</b></a>
                     </li>
 
-                {% else %}
+                {% endif %}
+                    
                     <li>
                         <a href={% url 'homepage' %}><b>Home</b></a>
                     </li>
-                {% endif %}
-
                     
 
             </ul>

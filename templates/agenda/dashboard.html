@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+{% load static %}
+{% block content %}
+{% include "header.html" %}
+{% block title %}Welcome - Your dashboard{% endblock %}
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -44,3 +48,5 @@
 
 </body>
 </html>
+
+{%endblock%}

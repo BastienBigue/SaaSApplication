@@ -7,6 +7,9 @@ from agenda.forms import UserRegistrationForm, TaskForm
 from django.contrib.auth.decorators import login_required
 from agenda.models import Agenda, Task
 from django.contrib.auth.models import User
+from soundModule import textToAudio
+from datetime import datetime
+import pytz
 
 
 # Create your views here.
@@ -85,7 +88,6 @@ def user_login(request):
 
 
         
-from soundModule import textToAudio
 @login_required(login_url='/agenda/')
 def addTask(request):
     new_task_added = False
@@ -112,8 +114,9 @@ def addTask(request):
 
 @login_required(login_url='/agenda/')
 def dashboard(request):
+        t = Task.objects.filter(date__lt=datetime.now(tz=pytz.timezone("Europe/Paris"))).delete()
         userAgenda = Agenda.objects.get(user=User.objects.get(username=request.user))
-        taskList=userAgenda.task_set.all()
+        taskList = userAgenda.task_set.all()
         return render(request, 'agenda/dashboard.html', locals())
 
 

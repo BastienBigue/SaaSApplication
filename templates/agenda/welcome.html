@@ -8,6 +8,7 @@
     <section>
         <div class="row">
             <div class="col-sm-12 container-white">
+                {% if user.is_authenticated == False%}
                 <div class="bottom text-center">
                     <a href={% url 'register' %}><b>Register</b></a>
                 </div>
@@ -38,6 +39,7 @@
                          </form>
                     </div>
                 </div>
+                {% endif %}
            </div>
         </div>
     </section>

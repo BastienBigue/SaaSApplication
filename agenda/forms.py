@@ -3,6 +3,8 @@ from django import forms
 from django.contrib.auth.models import User
 from django.utils.safestring import mark_safe
 from agenda.models import Task
+from datetime import date
+import pytz
 
 class UserRegistrationForm(forms.ModelForm):
     class Meta:
@@ -26,3 +28,9 @@ class TaskForm(forms.ModelForm):
             'lieu': forms.TextInput(attrs={'placeholder': 'Where ?', 'id': 'lieu'}),
             'date': forms.DateTimeInput(attrs={'placeholder': 'When ? YYYY-MM-DD HH:MM', 'name': 'date', 'id': 'date'}),
         }
+
+    def clean_date(self):
+        date = self.cleaned_data['date']
+        if date.date() < date.now(tz=pytz.timezone("Europe/Paris")).date():
+            raise forms.ValidationError("The date cannot be in the past!")
+        return date
