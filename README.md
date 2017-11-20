@@ -1,8 +1,8 @@
 # Projet CTLV : Task Planner
-/**
+
 * Groupe B11 
 * Bastien Bigué, Thibaut Sarion.
-**/
+
 
 Afin de répondre à la Task 4 du TP 3, nous avons choisi de développer une application MCV d'agenda très simplifiée. 
 
@@ -10,7 +10,6 @@ Nous avons implémenté cette application avec Django et nous l'avons déployée
 
 
 ## Fonctionnalités
-Les fonctionnalités de notre application sont : 
 
 * Gestion d'utilisateurs via un système d'authentification.
 * Ajout de tâches à l'agenda.
@@ -32,8 +31,8 @@ Les deux containers appartiennent au même VLAN (2112) afin de pouvoir communiqu
 
 Résumé : 
 Proxmox -> srv-px5 : 
-Container ct-tpgei-ctlv-B11-serverDjango : login : root ; password : thibaut9& ; VLAN : 2028, 2112 ; 
-Container ct-tpgei-ctlv-B11-MySqlDB : login : root ; paassword : thibaut9& ; VLAN : 2112
+* Container ct-tpgei-ctlv-B11-serverDjango : login : root ; password : thibaut9& ; VLAN : 2028, 2112 ; 
+* Container ct-tpgei-ctlv-B11-MySqlDB : login : root ; paassword : thibaut9& ; VLAN : 2112
 
 
 ## Comment l'utiliser ? 
