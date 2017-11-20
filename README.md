@@ -18,6 +18,8 @@ Nous avons implémenté cette application avec Django et nous l'avons déployée
 
 ## Architecture
 
+![alt text](http://hpics.li/6e0ae11)
+
 Comme énoncé précédemment, notre application a été développée sous Django et déployée sur Proxmox. 
 
 Afin de répondre au mieux à la demande d'architecture en micro-services, nous avons choisi de séparer la base de données du coeur de l'application. Pour cela, nous avons mis en place deux containers Proxmox.
