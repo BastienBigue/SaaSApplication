@@ -27,7 +27,7 @@ SECRET_KEY = '7v^w$_97vacoi5q829oujv8@nn1+e*f_u0g-ax33wrwfhq5k&4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['djangob11-184900.appspot.com', 'localhost']
+ALLOWED_HOSTS = ['10.20.28.156', 'localhost']
 
 
 # Application definition
@@ -76,45 +76,22 @@ WSGI_APPLICATION = 'projetB11.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-if os.getenv('SERVER_SOFTWARE', '').startswith('Google App Engine'):
-    # Running on production App Engine, so connect to Google Cloud SQL using
-    # the unix socket at /cloudsql/<your-cloudsql-connection string>
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'application',
-            'USER': 'root',
-            'PASSWORD': 'qL68iJy1m4',
-            'HOST': 'node14995-env-5912453.hidora.com',
-            'PORT': '11069',
-        }
+DATABASES = {
+      'default': {
+          'ENGINE': 'django.db.backends.mysql',
+          'NAME': 'chivunito',
+          'USER': 'chivunito',
+          'PASSWORD': 'thibaut9&',
+          'HOST': '10.100.1.2',
+          'PORT': '3306',
+      }
     }
-else:
-    # Running locally so connect to either a local MySQL instance or connect to
-    # Cloud SQL via the proxy. To start the proxy via command line:
-    #
-    #     $ cloud_sql_proxy -instances=[INSTANCE_CONNECTION_NAME]=tcp:3306
-    #
-    # See https://cloud.google.com/sql/docs/mysql-connect-proxy
-
-    # DATABASES = {
-    #     'default': {
-    #         'ENGINE': 'django.db.backends.mysql',
-    #         'NAME': 'application',
-    #         'USER': 'root',
-    #         'PASSWORD': 'qL68iJy1m4',
-    #         'HOST': 'node14995-env-5912453.hidora.com',
-    #         'PORT': '11069',
-    #     }
-    # }
-
-   DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        }
-   }
-
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#    }
+#}
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
