@@ -18,7 +18,7 @@ Nous avons implémenté cette application avec Django et nous l'avons déployée
 
 ## Architecture
 
-![alt text](http://hpics.li/6e0ae11)
+![alt text](https://image.ibb.co/kcspsm/Django_App_CTLV.jpg)
 
 Comme énoncé précédemment, notre application a été développée sous Django et déployée sur Proxmox. 
 
