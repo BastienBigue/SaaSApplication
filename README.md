@@ -12,10 +12,10 @@ Nous avons implémenté cette application avec Django et nous l'avons déployée
 ## Fonctionnalités
 Les fonctionnalités de notre application sont : 
 
-	* Gestion d'utilisateurs via un système d'authentification.
-    * Ajout de tâches à l'agenda.
-	* Enoncé oral de la tâche ( [Module](https://github.com/pndurette/gTTS) Python client de l'api Text-To-Speech GOOGLE ).
-    * Suppression automatique de la tâche une fois la date limite dépassée.
+* Gestion d'utilisateurs via un système d'authentification.
+* Ajout de tâches à l'agenda.
+* Enoncé oral de la tâche ( [Module](https://github.com/pndurette/gTTS) Python client de l'api Text-To-Speech GOOGLE ).
+* Suppression automatique de la tâche une fois la date limite dépassée.
 
 ## Architecture
 
@@ -44,14 +44,14 @@ Normalement, les deux serveurs tournent (nous les avons lancé via un screen).
 
 Si le serveur Django venait à ne pas fonctionner, voici comment le relancer : 
 
-	* se connecter au réseau de l'INSA
-	* aller sur proxmox (https://srv-px1.insa-toulouse.fr:8006/)
-	* ouvrir la console du container ct-tpgei-ctlv-B11-serverDjango sur srv-px5 (login : root ; password : thibaut9&)
-	* trouver toutes les instances de serveur Django déjà lancées (ps -ef | grep runserver)
-	* les arrêter (kill -9 pid)
-	* se déplacer dans le dossier du projet cd /root/SaaSApplication/
-	* relancer une instance du serveur Django sur le port 80 (python3 manage.py runserver 80)
-	* accéder à l'application via http://10.20.28.156/agenda
+* se connecter au réseau de l'INSA
+* aller sur proxmox (https://srv-px1.insa-toulouse.fr:8006/)
+* ouvrir la console du container ct-tpgei-ctlv-B11-serverDjango sur srv-px5 (login : root ; password : thibaut9&)
+* trouver toutes les instances de serveur Django déjà lancées (ps -ef | grep runserver)
+* les arrêter (kill -9 pid)
+* se déplacer dans le dossier du projet cd /root/SaaSApplication/
+* relancer une instance du serveur Django sur le port 80 (python3 manage.py runserver 80)
+* accéder à l'application via http://10.20.28.156/agenda
 
 
 ## Perspectives
