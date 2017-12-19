@@ -39,7 +39,7 @@ Proxmox -> srv-px5 :
 
 ## Comment l'utiliser ? 
 
-Notre application est accessible via l'adresse : http://10.20.28.156/agenda depuis le réseau INSA
+Notre application est accessible via l'adresse : http://10.20.28.102/agenda depuis le réseau INSA
 
 Normalement, les deux serveurs tournent (nous les avons lancé via un screen).
 
@@ -52,7 +52,7 @@ Si le serveur Django venait à ne pas fonctionner, voici comment le relancer :
 * les arrêter (kill -9 pid)
 * se déplacer dans le dossier du projet cd /root/SaaSApplication/
 * relancer une instance du serveur Django sur le port 80 (python3 manage.py runserver 80)
-* accéder à l'application via http://10.20.28.156/agenda
+* accéder à l'application via http://10.20.28.102/agenda
 
 
 ## Perspectives
